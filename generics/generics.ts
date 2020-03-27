@@ -26,5 +26,31 @@ class ArrayOfAnything<T> {
   }
 }
 
-// Give the type when creating instance
+/**
+ * Give type when creating instance
+ * But type inference also makes it automatically
+ */
+
 new ArrayOfAnything<string>(["x", "y", "z"]);
+
+// Example of generics with functions
+
+function printNumbers(arr: number[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+
+function printStrings(arr: string[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+
+function printAnything<T>(arr: T[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+
+printAnything<string>(["a", "b", "c"]);
