@@ -54,3 +54,31 @@ function printAnything<T>(arr: T[]): void {
 }
 
 printAnything<string>(["a", "b", "c"]);
+
+// Generic Constraints
+
+class Car {
+  print() {
+    console.log("I'm a car");
+  }
+}
+
+class House {
+  print() {
+    console.log("I'm a house");
+  }
+}
+
+interface Printable {
+  print(): void;
+}
+
+function printHousesOrCars<T extends Printable>(arr: T[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].print();
+  }
+}
+
+//printHousesOrCars([1, 2, 3, 4]);
+printHousesOrCars<House>([new House(), new House()]);
+printHousesOrCars<Car>([new Car(), new Car()]);
