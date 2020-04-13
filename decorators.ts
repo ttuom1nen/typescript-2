@@ -20,7 +20,7 @@ function logError(errorMessage: string) {
       try {
         method();
       } catch (e) {
-        console.log("Boat sank!");
+        console.log(errorMessage);
       }
     };
   };
